@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="description" content="None" /><link rel="canonical" href="https://example.com/" />
+      <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>Hospitalization Risk</title>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Home";
+        var mkdocs_page_input_path = "index.md";
+        var mkdocs_page_url = "/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="." class="icon icon-home"> Hospitalization Risk
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href=".">Home</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#what-is-this-project">What is this Project?</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#getting-started">Getting Started</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#to-import-the-package">To import the package</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#functions">Functions</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#project-layout">Project layout</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#decisions-and-considerations">Decisions and Considerations</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#acknowledgments">Acknowledgments:</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="about/">About</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href=".">Hospitalization Risk</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Home</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="hospitalization-risk">Hospitalization Risk</h1>
+<p><a href="https://github.com/gilmourj/NSAPH-Homework-Gilmour">DE-SynPUF Hospitalization Risk</a> is a project by <a href="https://gilmourj.github.io/">Jonathan Gilmour</a></p>
+<h2 id="what-is-this-project">What is this Project?</h2>
+<p>This is a python project for accessing US CMS DE-SynPUF data and calculating all-cause inpatient hospitalization risk from the data, using prespecified groups.</p>
+<h2 id="getting-started">Getting Started</h2>
+<h2 id="usage">Usage</h2>
+<p>All the methods to download CMS DE-SynPUF data and to calculate all-cause inpatient hospitalization risk can be run on the command line or imported as a package and used in other projects.</p>
+<h3 id="to-import-the-package">To import the package</h3>
+<p>It is recommended to create a virtual environment to run the code. This can be done with the following</p>
+<pre><code>python3 -m venv myenv
+source myenv/bin/activate
+</code></pre>
+<p>Install the package
+<code>pip install git+https://github.com/gilmourj/NSAPH-Homework-Gilmour.git</code></p>
+<p>Download and install dependencies
+<code>pip download -d https://github.com/gilmourj/NSAPH-Homework-Gilmour -r requirements.txt</code></p>
+<h3 id="functions">Functions</h3>
+<ul>
+<li>download_files('path/to/output/directory')</li>
+<li>hospitalization_risk(stratifications, 'path/to/data/directory', 'path/to/output/directory')<ul>
+<li>stratifications should be in a list format and the options are ['sex', 'race', 'age', 'all']</li>
+</ul>
+</li>
+</ul>
+<p>Example usage:</p>
+<pre><code>import synpuf_hospitalization_risk as hr
+
+# download DE-SynPUF files
+hr.download_files('data/')
+
+# calculate all-cause hospitalization risk with Sex and Race prespecified stratification. 
+# We will read from the data/ directory and write to output/
+hr.hospitalization_risk(['sex', 'race'], 'data/', 'output/')
+
+# calculate all-cause hospitalization risk with Sex, Race, and Age stratifications. 
+# We will read from the data/ directory and write to output/
+hr.hospitalization_risk(['all'], 'data/', 'output/')
+</code></pre>
+<h2 id="project-layout">Project layout</h2>
+<pre><code>src/
+    synpuf_hospitalization_risk/
+        __init__.py
+        get_hospitalization_risk.py
+        get_synpuf_files.py
+</code></pre>
+<h2 id="decisions-and-considerations">Decisions and Considerations</h2>
+<p>The way that I calculate age is a shorthand. I'm calculating age using the year of the beneficiary file and the beneficiary birth date. For those beneficiaries with hospitalization claims, the more correct age calculation would take the date of the inpatient admission and calculate age (though this works <em>only</em> for those beneficiaries that can be matched to an inpatient claim). If I had more time, I would implement this logic.</p>
+<p>I spent a lot of time working to make sure that the functions in this project were accessible both on the command line and as a python package. I probably should have just focused on the aim of the assignment and saved myself some time! It's very satisfying that they all run, though.</p>
+<p>This was the first time I worked with dask, and it took some getting used to (and the process of trying to group by stratifications and count unique DESYNPUF_IDs and CLM_ADMSN_DTs was painful). That said, it's immensely powerful for manipulating large datasets.</p>
+<h2 id="acknowledgments">Acknowledgments:</h2>
+<ul>
+<li>the vast majority of the code to download DE-SynPUF data in the get_synupf_files.py file comes from OHDSI https://github.com/OHDSI/ETL-CMS/blob/master/scripts/get_synpuf_files.py.</li>
+<li>Starter code and assignment direction by Michelle Audirac</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="about/" class="btn btn-neutral float-right" title="About">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+      <span><a href="about/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = ".";</script>
+    <script src="js/theme_extra.js"></script>
+    <script src="js/theme.js"></script>
+      <script src="search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 1.5.3
+Build Date UTC : 2024-04-18 04:18:29.046484+00:00
+-->
