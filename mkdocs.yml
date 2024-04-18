@@ -1,5 +1,5 @@
 site_name: Hospitalization Risk
-site_url: https://example.com/
+site_url: https://gilmourj.github.io/hospitalization_risk_docs/
 nav:
   - Home: index.md
   - About: about.md
