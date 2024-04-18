@@ -28,12 +28,13 @@ python3 -m venv myenv
 source myenv/bin/activate
 ```
 
-Install the package
-`pip install git+https://github.com/gilmourj/NSAPH-Homework-Gilmour.git`
-
-
-Download and install dependencies
-`pip download -d https://github.com/gilmourj/NSAPH-Homework-Gilmour -r requirements.txt`
+Install the package and requirements
+```
+pip install git+https://github.com/gilmourj/NSAPH-Homework-Gilmour.git
+pip install "dask[dataframe]"
+pip install pandas
+pip install numpy
+```
 
 ### Functions
 * download_files('path/to/output/directory')
